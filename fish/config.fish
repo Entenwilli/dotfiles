@@ -1,3 +1,4 @@
+set GEM_ROOT /usr/lib/ruby/3.0.0
 set -g fish_greeting
 if status is-interactive
     set -x GPG_TTY $(tty)
