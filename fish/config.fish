@@ -3,6 +3,7 @@ set -g fish_greeting
 if status is-interactive
     set -x GPG_TTY $(tty)
     set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+    set -gx SSH_ASKPASS /usr/lib/ssh/gnome-ssh-askpass3
 		ssh-add
 		clear
 		neofetch
