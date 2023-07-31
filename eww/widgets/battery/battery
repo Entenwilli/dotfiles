@@ -1,0 +1,62 @@
+#!/bin/bash
+
+battery() {
+	BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
+	cat /sys/class/power_supply/${BAT}/capacity
+}
+
+battery_stat() {
+	BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
+	cat /sys/class/power_supply/${BAT}/status
+}
+
+battery_icon() {
+  battery=`ls /sys/class/power_supply | grep BAT | head -n 1`
+	percentage=`cat /sys/class/power_supply/${battery}/capacity`
+  state=`cat /sys/class/power_supply/${battery}/status`
+
+  if [[ "$state" == "Charging" ]]; then
+    echo "󰂄"
+    return
+  fi
+
+  if (($percentage < 10)); then
+    echo "󰁺"
+    return
+  elif (($percentage < 20)); then
+    echo "󰁻"
+    return
+  elif (($percentage < 30)); then
+    echo "󰁼"
+    return
+  elif (($percentage < 40)); then
+    echo "󰁽" 
+    return
+  elif (($percentage < 50)); then
+    echo "󰁾" 
+    return
+  elif (($percentage < 60)); then
+    echo "󰁿"
+    return
+  elif (($percentage < 70)); then
+    echo "󰂀"
+    return
+  elif (($percentage < 80)); then
+    echo "󰂁"
+    return
+  elif (($percentage < 90)); then
+    echo "󰂂"
+    return
+  else
+    echo "󰁹"
+    return
+  fi
+}
+
+if [[ "$1" == "--bat" ]]; then
+	battery
+elif [[ "$1" == "--bat-st" ]]; then
+	battery_stat
+elif [[ "$1" == "--icon" ]]; then
+  battery_icon
+fi

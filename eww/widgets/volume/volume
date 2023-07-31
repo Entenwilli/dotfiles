@@ -1,0 +1,14 @@
+#!/bin/sh
+mute() {
+  state=$(pamixer --default-source --get-mute)
+
+  if [ $state = "true" ]; then
+    echo "󰝟"
+  else
+    echo "󰕾"
+  fi
+}
+
+if [[ "$1" == "--icon" ]]; then
+	mute
+fi

@@ -1,0 +1,5 @@
+(deflisten workspace "./widgets/workspaces/workspace")
+
+(defwidget workspaces []
+  (literal :class "workspaces" :content workspace)
+)

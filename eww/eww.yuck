@@ -1,0 +1,15 @@
+;; Includes for widgets
+(include "./widgets/workspaces/main.yuck")
+(include "./widgets/clock/main.yuck")
+(include "./widgets/music/main.yuck")
+(include "./widgets/battery/main.yuck")
+(include "./widgets/volume/main.yuck")
+(include "./widgets/brightness/main.yuck")
+
+;; Includes for windows
+(include "./windows/bar.yuck")
+(include "./windows/control.yuck")
+
+;; Variables
+(defvar eww "/opt/bin/eww -c $HOME/.config/eww/")
+

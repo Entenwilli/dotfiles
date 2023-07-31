@@ -1,0 +1,15 @@
+@import "./widgets/battery/main.scss";
+@import "./widgets/brightness/main.scss";
+@import "./widgets/workspaces/main.scss";
+@import "./widgets/clock/main.scss";
+@import "./widgets/music/main.scss";
+@import "./widgets/volume/main.scss";
+
+@import "./windows/bar.scss";
+
+* {
+  all: unset;
+  font-family: FiraCode Nerd Font;
+}
+
+

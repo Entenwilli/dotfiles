@@ -1,0 +1,12 @@
+(defpoll battery :interval "15s" "./widgets/battery/battery --bat")
+(defpoll battery_status :interval "1m" "./widgets/battery/battery --bat-st")
+(defpoll battery_icon :interval "15s" "./widgets/battery/battery --icon")
+
+(defwidget battery []
+		(box :class "battery_module"
+    (label :text "${battery_icon}"
+            :class "battery_icon")
+    (label :text "${battery}%"
+            :class "battery_percentage")
+  )
+)

@@ -8,7 +8,8 @@ exec_always "setxkbmap -layout de"
 font pango:FiraCode Nerd Font 8
 
 # Load bar
-exec_always --no-startup-id /home/felix/.config/polybar/launch.sh
+exec_always --no-startup-id /opt/bin/eww open bar
+# exec_always --no-startup-id /home/felix/.config/polybar/launch.sh
 
 # Load compositor (picom)
 exec_always --no-startup-id picom --no-use-damage
@@ -46,6 +47,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+
+# Monitor brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl set 5%-"
+bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl set 5%+"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

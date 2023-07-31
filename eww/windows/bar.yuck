@@ -1,0 +1,49 @@
+(defwindow bar 
+  :monitor 0
+  :windowtype "dock"
+  :stacking "fg"
+  :geometry (geometry
+    :x "0%"
+    :y "0%"
+    :width "98%"
+    :height "30px"
+    :anchor "top center"
+  )
+  (bar_content)
+)
+
+(defwidget bar_content[]
+(box :class "bar"
+  :orientation "h"
+  (left) 
+  (center)
+  (right)
+))
+
+(defwidget left[]
+  (box :orientation "h"
+        :space-evenly false
+        :halign "start"
+        :class "left_modules"
+  (workspaces)
+))
+
+(defwidget center[]
+  (box :orientation "h"
+    :space-evenly false
+    :class "center_modules"
+  (music)
+))
+
+(defwidget right[]
+(box :orientation "h"
+    :space-evenly false
+    :halign "end"
+    :class "right_modules"
+  (volume)(seperator)(brightness)(seperator)(battery)(seperator)(clock)
+))
+
+(defwidget seperator []
+  (box :class "seperator_module" :vexpand "false" :hexpand "false"
+    (label :class "separator" :text "|")
+))

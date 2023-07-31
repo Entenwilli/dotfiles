@@ -1,0 +1,56 @@
+#!/bin/sh
+workspaces() {
+
+ws1="1"
+ws2="2"
+ws3="3"
+ws4="4"
+ws5="5"
+ws6="6"
+
+# Unoccupied
+un="w"
+
+# check if Occupied
+o1=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws1\") | .name")
+o2=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws2\") | .name")
+o3=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws3\") | .name")
+o4=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws4\") | .name")
+o5=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws5\") | .name")
+o6=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws6\") | .name")
+
+# check if Focused
+f1=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws1\") | select(.focused==true) | .name")
+f2=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws2\") | select(.focused==true) | .name")
+f3=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws3\") | select(.focused==true) | .name")
+f4=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws4\") | select(.focused==true) | .name")
+f5=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws5\") | select(.focused==true) | .name")
+f6=$(i3-msg -t get_workspaces | jq -r ".[] | select(.name==\"$ws6\") | select(.focused==true) | .name")
+
+ic_1=""
+ic_2=""
+ic_3=""
+ic_4=""
+ic_5=""
+ic_6=""
+if [ $f1 ]; then
+    ic_1=""
+elif [ $f2 ]; then
+    ic_2=""
+elif [ $f3 ]; then
+    ic_3=""
+elif [ $f4 ]; then
+    ic_4=""
+elif [ $f5 ]; then
+    ic_5=""
+elif [ $f6 ]; then
+    ic_6=""
+fi
+
+echo 	"(box	:class \"workspace\"	:orientation \"h\" :spacing 5 :space-evenly \"false\" (button :onclick \"i3-msg -t run_command workspace $ws1\"	:class	\"$un$o1$f1\"	\"$ic_1\") (button :onclick \"i3-msg -t run_command workspace $ws2\"	:class \"$un$o2$f2\"	 \"$ic_2\") (button :onclick \"i3-msg -t run_command workspace $ws3\"	:class \"$un$o3$f3\" \"$ic_3\") (button :onclick \"i3-msg -t run_command workspace $ws4\"	:class \"$un$o4$f4\"	\"$ic_4\") (button :onclick \"i3-msg -t run_command workspace $ws5\"	:class \"$un$o5$f5\" \"$ic_5\")  (button :onclick \"i3-msg -t run_command workspace $ws6\"	:class \"$un$o6$f6\" \"$ic_6\"))"
+
+}
+workspaces
+i3-msg -t subscribe -m '["workspace"]' | while read -r _ ; do
+workspaces
+done

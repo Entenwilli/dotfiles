@@ -1,0 +1,13 @@
+(defpoll clock_hour :interval "5m" "date +\%H")
+(defpoll clock_minute :interval "5s" "date +\%M")
+
+(defwidget clock[]
+  (box :class "module" 
+        :space-evenly "false" 
+        :orientation "h"
+        :spacing "3"
+    (label :text clock_hour :class "clock_hour")
+    (label :text ":" :class "clock_seperator")
+    (label :text clock_minute :class "clock_minute")
+  )
+)
