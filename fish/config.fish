@@ -9,3 +9,5 @@ if status is-interactive
 		neofetch
 end
 fish_add_path /home/felix/.spicetify
+
+alias ls "colorls"
