@@ -1,0 +1,19 @@
+#!/bin/bash
+
+vpn_name() {
+  nmcli c show --active | grep vpn | cut -d " " -f1
+}
+
+vpn_status() {
+  if ip link show | grep tun0 &> /dev/null; then
+    echo "true"
+  else
+    echo "false"
+  fi
+}
+
+if [[ "$1" == "name" ]]; then
+	vpn_name
+elif [[ "$1" == "status" ]]; then
+	vpn_status
+fi

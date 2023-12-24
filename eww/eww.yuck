@@ -5,6 +5,8 @@
 (include "./widgets/battery/main.yuck")
 (include "./widgets/volume/main.yuck")
 (include "./widgets/brightness/main.yuck")
+(include "./widgets/network/main.yuck")
+(include "./widgets/bluetooth/main.yuck")
 
 ;; Includes for windows
 (include "./windows/bar.yuck")

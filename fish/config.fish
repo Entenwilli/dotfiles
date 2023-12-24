@@ -9,5 +9,7 @@ if status is-interactive
 		neofetch
 end
 fish_add_path /home/felix/.spicetify
+fish_add_path /home/felix/.cabal/bin
+fish_add_path /home/felix/.ghcup/bin
 
 alias ls "colorls"

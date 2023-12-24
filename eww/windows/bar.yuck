@@ -16,7 +16,6 @@
 (box :class "bar"
   :orientation "h"
   (left) 
-  (center)
   (right)
 ))
 
@@ -25,7 +24,7 @@
         :space-evenly false
         :halign "start"
         :class "left_modules"
-  (workspaces)
+  (workspaces)(music)
 ))
 
 (defwidget center[]
@@ -40,7 +39,7 @@
     :space-evenly false
     :halign "end"
     :class "right_modules"
-  (volume)(seperator)(brightness)(seperator)(battery)(seperator)(clock)
+   (bluetooth)(volume)(seperator)(brightness)(seperator)(network)(seperator)(battery)(seperator)(clock)
 ))
 
 (defwidget seperator []

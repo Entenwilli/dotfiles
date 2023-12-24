@@ -1,0 +1,28 @@
+#!/bin/bash
+
+bluetooth_name() {
+  if bluetoothctl devices Connected | cut -c 26-; then echo "" 
+  else
+    echo "Offline"
+  fi
+}
+
+bluetooth_status() {
+  if bluetoothctl show | grep -q "Powered: no"; then
+    echo "false"
+  else
+    echo "true"
+  fi
+}
+
+bluetooth_icon() {
+  echo ""
+}
+
+if [[ "$1" == "name" ]]; then
+	bluetooth_name
+elif [[ "$1" == "status" ]]; then
+	bluetooth_status
+elif [[ "$1" == "icon" ]]; then
+  bluetooth_icon
+fi

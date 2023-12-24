@@ -1,4 +1,4 @@
-(defpoll volume_percent :interval "3s" "pamixer --default-source --get-volume")
+(defpoll volume_percent :interval "3s" "pamixer --get-volume")
 (defpoll volume_icon :interval "3s" "./widgets/volume/volume --icon")
 
 (defvar volume_reveal false)
@@ -7,7 +7,7 @@
   (eventbox :onhover "${eww} update volume_reveal=true"
 			  :onhoverlost "${eww} update volume_reveal=false"
   (box :class "volume_module" :space-evenly "false" :orientation "h" :spacing "3" 
-    (button :onclick "pamixer --default-source --toggle-mute" :class "volume_icon" "${volume_icon}")
+    (button :onclick "pamixer --toggle-mute" :class "volume_icon" "${volume_icon}")
     (label :class "volume_percentage" :text "${volume_percent}%")
     (revealer :transition "slideleft"
               :reveal volume_reveal
@@ -18,6 +18,6 @@
                 :tooltip "${volume_percent}%"
                 :max 100
                 :min 0
-                :onchange "pamixer --default-source --set-volume {} && ${eww} update volume_percent={}" )
+                :onchange "pamixer --set-volume {} && ${eww} update volume_percent={}" )
     )
 )))

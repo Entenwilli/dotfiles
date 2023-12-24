@@ -1,26 +1,13 @@
 (defpoll song :interval "2s"  "./widgets/music/music --song")
 (defpoll song_artist :interval "2s"  "./widgets/music/music --artist")
-(defpoll current_status :interval "1s"  "./widgets/music/music --time")
-(defpoll song_status :interval "2s"  "./widgets/music/music --status")
-(defpoll cover_art :interval "2s"  "./widgets/music/music --cover")
-
-(defvar music_reveal false)
+(defpoll song_status :interval "2s" "./widgets/music/music --status")
 
 (defwidget music [] 
-  (eventbox :onhover "${eww} update music_reveal=true"
-			  :onhoverlost "${eww} update music_reveal=false"
-	(box :class "module-2" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
-		(box :class "song_cover_art" :vexpand "false" :hexpand "false" :style "background-image: url('${cover_art}');")
+  (eventbox
+	(box :class "module-2" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" :visible song_status 
+    (seperator)
+    (label :class "song_icon" :text "")
 		(label :class "song_name" :text song)
     (label :class "song_seperator" :text "-")
     (label :class "song_artist" :text song_artist)
-	  (revealer :transition "slideright"
-			      :reveal music_reveal
-			      :duration "350ms"
-      (box :vexpand "false" :hexpand "false" :orientation "h" :class "song_btn" 
-        (button :class "song_btn_prev" :onclick "./widgets/music/music --prev" "")
-				(button :class "song_btn_play" :onclick "./widgets/music/music --toggle" song_status)
-				(button :class "song_btn_next" :onclick "./widgets/music/music --next" "")
-      )
-    )
 )))

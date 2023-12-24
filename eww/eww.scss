@@ -4,12 +4,14 @@
 @import "./widgets/clock/main.scss";
 @import "./widgets/music/main.scss";
 @import "./widgets/volume/main.scss";
+@import "./widgets/network/main.scss";
+@import "./widgets/bluetooth/main.scss";
 
 @import "./windows/bar.scss";
 
 * {
   all: unset;
-  font-family: FiraCode Nerd Font;
+  font-family: FiraCode Nerd Font, monospace, IPAPMincho;
 }
 
 

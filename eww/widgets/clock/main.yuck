@@ -1,4 +1,4 @@
-(defpoll clock_hour :interval "5m" "date +\%H")
+(defpoll clock_hour :interval "1m" "date +\%H")
 (defpoll clock_minute :interval "5s" "date +\%M")
 
 (defwidget clock[]

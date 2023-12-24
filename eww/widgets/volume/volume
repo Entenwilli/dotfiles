@@ -1,6 +1,6 @@
 #!/bin/sh
 mute() {
-  state=$(pamixer --default-source --get-mute)
+  state=$(pamixer --get-mute)
 
   if [ $state = "true" ]; then
     echo "󰝟"

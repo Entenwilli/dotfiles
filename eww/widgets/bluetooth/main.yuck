@@ -1,0 +1,17 @@
+(defpoll bluetooth_name :interval "5s" "./widgets/bluetooth/bluetooth name")
+(defpoll bluetooth_status :interval "5s" "./widgets/bluetooth/bluetooth status")
+(defpoll bluetooth_icon :interval "5s" "./widgets/bluetooth/bluetooth icon")
+
+(defwidget bluetooth[]
+  (eventbox :onclick "dmenu-bluetooth&"
+            :visible bluetooth_status
+    (box :class "module" 
+          :space-evenly "false" 
+          :orientation "h"
+          :spacing "3"
+      (label :text bluetooth_icon :class "bluetooth_icon" :tooltip "bluetooth")
+      (label :text bluetooth_name :class "bluetooth_name")
+      (seperator)
+    )
+  )
+)
