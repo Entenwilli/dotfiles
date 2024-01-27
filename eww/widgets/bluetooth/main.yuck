@@ -3,7 +3,7 @@
 (defpoll bluetooth_icon :interval "5s" "./widgets/bluetooth/bluetooth icon")
 
 (defwidget bluetooth[]
-  (eventbox :onclick "dmenu-bluetooth&"
+  (eventbox :onclick "./widgets/bluetooth/bluetooth edit"
             :visible bluetooth_status
     (box :class "module" 
           :space-evenly "false" 

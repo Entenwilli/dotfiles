@@ -25,4 +25,6 @@ elif [[ "$1" == "status" ]]; then
 	bluetooth_status
 elif [[ "$1" == "icon" ]]; then
   bluetooth_icon
+elif [[ "$1" == "edit" ]]; then
+  DMENU_BLUETOOTH_LAUNCHER=rofi dmenu-bluetooth&
 fi
