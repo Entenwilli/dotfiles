@@ -1,9 +1,13 @@
 (defpoll brightness_percent :initial 0 :interval "5s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
+(defpoll brightness_active :initial false :interval "1m" "./widgets/brightness/brightness status")
 
 (defvar brightness_reveal false)
 
 (defwidget brightness []
-  (eventbox :onhover "/opt/bin/eww update brightness_reveal=true" :onhoverlost "/opt/bin/eww update brightness_reveal=false"
+  (eventbox 
+  :visible brightness_active
+  :onhover "/opt/bin/eww update brightness_reveal=true" 
+  :onhoverlost "/opt/bin/eww update brightness_reveal=false"
   (box :class "brightness_module" :space-evenly "false" :orientation "h" :spacing "3" 
     (label :text "󰃠" :class "brightness_icon" :tooltip "brightness")
     (label :text "${brightness_percent}%" :class "brightness_text")
@@ -17,5 +21,6 @@
       :min 0
       :onchange "brightnessctl set {}% && /opt/bin/eww update brightness_percent={}"
     ))
+    (seperator)
   ))
 )

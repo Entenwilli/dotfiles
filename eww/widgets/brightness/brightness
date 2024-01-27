@@ -1,0 +1,14 @@
+#!/bin/bash
+
+backlight_status() {
+  if [ -z "$(ls -A /sys/class/backlight)" ]; then
+     echo "false"
+  else
+     echo "true"
+  fi
+}
+
+if [[ "$1" == "status" ]]; then
+  backlight_status
+fi
+
