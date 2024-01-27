@@ -2,6 +2,7 @@
   :monitor 0
   :windowtype "dock"
   :stacking "fg"
+  :exclusive true
   :geometry (geometry
     :x "0%"
     :y "0%"
