@@ -15,3 +15,4 @@ fish_add_path /home/felix/.cabal/bin
 fish_add_path /home/felix/.ghcup/bin
 
 alias ls "colorls"
+alias dmenu "rofi -dmenu"
