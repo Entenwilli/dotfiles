@@ -1,3 +1,19 @@
 #!/bin/bash
 
-iwgetid -r || echo "Offline"
+network_status() {
+  iwgetid -r || echo "Offline"
+}
+
+network_visible() {
+  if [[$(nmcli device wifi list)]]; then
+    echo "true"
+  else
+    echo "false"
+  fi
+}
+
+if [[ "$1" == "--visible" ]]; then
+  network_visible
+elif [[ "$1" == "--status" ]]; then
+  network_status
+fi

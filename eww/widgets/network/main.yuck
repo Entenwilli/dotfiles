@@ -1,4 +1,5 @@
-(defpoll network_name :interval "5s" "./widgets/network/network")
+(defpoll network_name :interval "5s" "./widgets/network/network --status")
+(defpoll network_visible :initial false :interval "1m" "./widgets/network/network --visible")
 (defpoll vpn_status :interval "5s" "./widgets/network/vpn status")
 (defpoll vpn_name :interval "5s" "./widgets/network/vpn name")
 
@@ -7,13 +8,15 @@
     (box :class "module" 
           :space-evenly "false" 
           :orientation "h"
-          :spacing "3"
-      (label :text "" :class "network_icon" :tooltip "network")
-      (label :text network_name :class "network_name")
-      (box :class "module" :visible vpn_status
+      (box :class "module" :visible network_visible
+        (label :text "" :class "network_icon" :tooltip "network")
+        (label :text network_name :class "network_name")
         (seperator)
+      )
+      (box :class "module" :visible vpn_status
         (label :text "󰖂" :class "vpn_icon")
         (label :text vpn_name :class "vpn_name")
+        (seperator)
       )
     )
   )
