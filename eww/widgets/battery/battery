@@ -1,5 +1,13 @@
 #!/bin/bash
 
+battery_status() {
+  if [ -z "$(ls -A /sys/class/power_supply/)" ]; then
+     echo "false"
+  else
+     echo "true"
+  fi
+}
+
 battery() {
 	BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
 	cat /sys/class/power_supply/${BAT}/capacity
@@ -59,4 +67,6 @@ elif [[ "$1" == "--bat-st" ]]; then
 	battery_stat
 elif [[ "$1" == "--icon" ]]; then
   battery_icon
+elif [[ "$1" == "--status" ]]; then
+  battery_status
 fi
