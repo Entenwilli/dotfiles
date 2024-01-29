@@ -9,6 +9,7 @@ if status is-interactive
 		ssh-add
 		clear
 		neofetch
+    alias cat "bat"
 end
 fish_add_path /home/felix/.spicetify
 fish_add_path /home/felix/.cabal/bin
