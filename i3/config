@@ -18,7 +18,7 @@ exec_always --no-startup-id /home/felix/.config/eww/launch.sh
 exec_always --no-startup-id picom --no-use-damage
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-fill "/home/felix/Pictures/Wallpaper/Zephrah-Wallpaper.png"
+exec_always --no-startup-id feh --bg-fill "/home/felix/Pictures/Wallpaper/snowy-lake.jpg"
 
 # Load notification manager
 exec_always --no-startup-id /home/felix/.config/dunst/launch.sh
