@@ -1,0 +1,10 @@
+(defpoll date :interval "10s" "date \"+\%A %d.%m.%Y\"")
+
+(defwidget date[]
+  (box :class "module" 
+        :space-evenly "false" 
+        :orientation "h"
+        :spacing "3"
+    (label :text date :class "date")
+  )
+)

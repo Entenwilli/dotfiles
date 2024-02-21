@@ -1,22 +1,22 @@
 (defpoll network_name :interval "5s" "./widgets/network/network --status")
-(defpoll network_visible :initial false :interval "1m" "./widgets/network/network --visible")
 (defpoll vpn_status :interval "5s" "./widgets/network/vpn status")
 (defpoll vpn_name :interval "5s" "./widgets/network/vpn name")
 
 (defwidget network[]
   (eventbox :onclick "/opt/bin/networkmanager_dmenu&"
-    (box :class "module" 
+    :space-evenly "false"
+    :hexpand "false"
+    (box :class "networking-module" 
           :space-evenly "false" 
           :orientation "h"
-      (box :class "module" :visible network_visible
+      (box :class "network-module" :space-evenly false :orientation "h" 
         (label :text "" :class "network_icon" :tooltip "network")
         (label :text network_name :class "network_name")
-        (seperator)
       )
-      (box :class "module" :visible vpn_status
+      (box :class "vpn-module" :visible vpn_status :space-evenly false :orientation "h" 
+        (seperator)
         (label :text "󰖂" :class "vpn_icon")
         (label :text vpn_name :class "vpn_name")
-        (seperator)
       )
     )
   )

@@ -21,7 +21,8 @@
 
     # Dimensions
     width = 300
-    offset = 24x54
+    offset = 0x24
+    origin = top-center
 
     # Enable progressbar
     progress_bar = true
@@ -82,7 +83,7 @@
     #  %% Literal %
 
     markup = full
-    format = "<b>%a</b>\n%s"
+    format = "<b>%a</b>\n<i>%s</i>\n\n%b"
 
     # Left align the text
     alignment = left
@@ -109,7 +110,7 @@
     # hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = no
 
     
     # ---- Icons ---- #
@@ -152,7 +153,7 @@
     class = Dunst
 
     # Define the corner radius of the notification window
-    corner_radius = 0
+    corner_radius = 10
 
     # Don't gnore the dbus closeNotification message.
     ignore_dbusclose = false

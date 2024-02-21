@@ -4,10 +4,14 @@
 
 (defwidget music [] 
   (eventbox
-	(box :class "module-2" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" :visible song_status 
-    (seperator)
+	(box :class "song_module" 
+    :orientation "h" 
+    :space-evenly "false" 
+    :vexpand "false" 
+    :hexpand "false" 
+    :visible song_status 
     (label :class "song_icon" :text "")
-		(label :class "song_name" :text song)
+		(label :class "song_name" :text song :limit-width 30)
     (label :class "song_seperator" :text "-")
-    (label :class "song_artist" :text song_artist)
+    (label :class "song_artist" :text song_artist :limit-width 30)
 )))

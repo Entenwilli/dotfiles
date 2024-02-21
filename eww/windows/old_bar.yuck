@@ -3,10 +3,9 @@
   :windowtype "dock"
   :stacking "fg"
   :exclusive true
-  :class "bar"
   :geometry (geometry
-    :x "0px"
-    :y "10px"
+    :x "0%"
+    :y "0%"
     :width "98%"
     :height "30px"
     :anchor "top center"
@@ -15,42 +14,33 @@
 )
 
 (defwidget bar_content[]
-(box :orientation "h"
+(box :class "bar"
+  :orientation "h"
   (left) 
-  (center)
   (right)
 ))
 
 (defwidget left[]
-(box :class "bar_element"
-  :orientation "h"
-  :halign "start"
-  :space-evenly "false" 
-  (hypr)
+  (box :orientation "h"
+        :space-evenly false
+        :halign "start"
+        :class "left_modules"
+  (workspaces)(music)
 ))
 
 (defwidget center[]
-(box :class "bar_element"
-  :orientation "h"
-  :halign "center"
-  :space-evenly "false"
-  (window_title)
-  (seperator)
+  (box :orientation "h"
+    :space-evenly false
+    :class "center_modules"
   (music)
 ))
 
 (defwidget right[]
-(box :class "bar_element"
-  :orientation "h"
-  :halign "end"
-  :space-evenly "false" 
-  (volume)
-  (seperator)
-  (network)
-  (seperator)
-  (date)
-  (seperator)
-  (clock)
+(box :orientation "h"
+    :space-evenly false
+    :halign "end"
+    :class "right_modules"
+   (bluetooth)(volume)(seperator)(brightness)(network)(battery)(clock)
 ))
 
 (defwidget seperator []

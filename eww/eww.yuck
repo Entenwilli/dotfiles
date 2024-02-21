@@ -7,10 +7,11 @@
 (include "./widgets/brightness/main.yuck")
 (include "./widgets/network/main.yuck")
 (include "./widgets/bluetooth/main.yuck")
+(include "./widgets/hypr/main.yuck")
+(include "./widgets/date/main.yuck")
 
 ;; Includes for windows
 (include "./windows/bar.yuck")
-(include "./windows/control.yuck")
 
 ;; Variables
 (defvar eww "/opt/bin/eww -c $HOME/.config/eww/")

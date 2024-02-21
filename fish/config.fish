@@ -1,4 +1,3 @@
-set GEM_ROOT /usr/lib/ruby/3.0.0
 set -g fish_greeting
 set -g theme_date_format "+%a %H:%M"
 
@@ -15,5 +14,6 @@ fish_add_path /home/felix/.spicetify
 fish_add_path /home/felix/.cabal/bin
 fish_add_path /home/felix/.ghcup/bin
 
-alias ls "colorls"
+alias ls "eza --icons"
+alias ll "eza --icons -lah"
 alias dmenu "rofi -dmenu"

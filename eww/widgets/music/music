@@ -15,7 +15,7 @@ get_status() {
 
 ## Get song
 get_song() {
-	song=`playerctl metadata title`
+	song=`playerctl -p spotify metadata title`
 	if [[ -z "$song" ]]; then
 		echo ""
 	else
@@ -25,7 +25,7 @@ get_song() {
 
 ## Get artist
 get_artist() {
-	artist=`playerctl metadata artist`
+	artist=`playerctl -p spotify metadata artist`
 	if [[ -z "$artist" ]]; then
 		echo ""
 	else
